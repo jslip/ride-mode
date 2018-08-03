@@ -1,0 +1,51 @@
+* Ride mode
+  Ride mode allows users to interact with a Dyalog APL interpreter via
+  the RIDE protocol from within emacs. It currently only supports a
+  subset of the features of the ride program.
+** Features
+   - Syntax highlighting (including a seperate face for idioms)
+   - Autocompletion through completion-at-point (this can be enhanced with company-capf)
+   - Edit functions and arrays within emacs
+** Dependencies
+   - dyalog-mode
+   - dash
+** Installation
+   First you need to install dyalog mode from melpa or otherwise (see
+   [[https://bitbucket.org/harsman/dyalog-mode/src/b2322f244c76\?at\=default][this]] for help if needed). Then to install ride mode follow put the
+   files ride-edit-mode.el and ride-mode.el in an appropriate location
+   and add the following to your init file
+   #+BEGIN_SRC emacs-lisp
+     (add-to-list 'load-path "/path/to/files")
+     (require 'ride-mode)
+   #+END_SRC
+** Use instructions
+   To start a session type ~M-x ride-start~. You can enter commands
+   and such as you are used to. Type ~C-M-i~ for completion, ~M-p~ and
+   ~M-n~ to scroll through history, and ~C-c C-d~ to get documentation
+   for the text where the cursor is. To configure some settings run
+   ~M-x customize-group RIDE RET~. If the outputs are very long it can
+   cause emacs to stall. Whenever this happens you can type ~C-c C-k~
+   to clear the text from the screen. When in an edit window for the
+   session ~C-x C-s~ will save changes to the object being edited,
+   ~C-c '~ will save and exit, ~C-c C-k~ will abort without saving,
+   ~C-c '~ will save then exit, and killing the buffer will provide a
+   prompt verifying that you want to kill it before exiting without
+   saving. ~C-c C-w~ will open a workspace
+   explorer. expanding/collapsing is done with ~TAB~ or ~C-i~ and
+   movement up and down is ~p~ and ~n~
+** Extra
+   To get completion to work smoothly install one of ~company~ or
+   ~ac-capf~ from melpa. You may need to add some functions to
+   ~ride-mode-hook~ to get nice results. For example I have
+   #+BEGIN_SRC emacs-lisp
+     (add-hook 'ride-mode-hook (lambda ()
+                                 (setq-local company-minimum-prefix-length 0)
+                                 (setq-local company-idle-delay 0)))
+   #+END_SRC
+   in my init file. If you want something like the ride backtick
+   keyboard, you could install ~gnu-apl-mode~ from melpa and utilize
+   the keyboard that it provides. Change keyboard with ~C-\ APL-Z
+   RET~. This keyboard is prefixed with a full-stop or period character.
+** TODO/What is missing
+   - Add debugging support
+
