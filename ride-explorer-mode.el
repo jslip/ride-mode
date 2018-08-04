@@ -136,7 +136,6 @@
           (accept-process-output ride-client nil 2)
           (newline)
           (apply #'ride-explorer-insert (cons (+ 2 indent) tree-list-response)))))
-    (message "%d" start-pos)
     (goto-char start-pos)))
 
 (defun ride-explorer-edit-line ()
