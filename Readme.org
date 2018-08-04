@@ -6,6 +6,7 @@
    - Syntax highlighting (including a seperate face for idioms)
    - Autocompletion through completion-at-point (this can be enhanced with company-capf)
    - Edit functions and arrays within emacs
+   - ride-like backtick keyboard
 ** Dependencies
    - dyalog-mode
    - dash
@@ -32,7 +33,9 @@
    prompt verifying that you want to kill it before exiting without
    saving. ~C-c C-w~ will open a workspace
    explorer. expanding/collapsing is done with ~TAB~ or ~C-i~ and
-   movement up and down is ~p~ and ~n~
+   movement up and down is ~p~ and ~n~. To use the backtick keyboad
+   type ~C-\ Dyalog RET~. Entering a literal =`= is done by following
+   with a space.
 ** Extra
    To get completion to work smoothly install one of ~company~ or
    ~ac-capf~ from melpa. You may need to add some functions to
@@ -42,10 +45,7 @@
                                  (setq-local company-minimum-prefix-length 0)
                                  (setq-local company-idle-delay 0)))
    #+END_SRC
-   in my init file. If you want something like the ride backtick
-   keyboard, you could install ~gnu-apl-mode~ from melpa and utilize
-   the keyboard that it provides. Change keyboard with ~C-\ APL-Z
-   RET~. This keyboard is prefixed with a full-stop or period character.
+   in my init file.
 ** TODO/What is missing
    - Add debugging support
 
