@@ -1,3 +1,5 @@
+;;; -*- coding: utf-8 -*-
+
 (defvar ride-explorer-mode-hook
   '(ride-explorer-init read-only-mode)
   "List of functions to be executed on the envocation of ride explorer mode.")
