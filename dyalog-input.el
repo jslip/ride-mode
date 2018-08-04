@@ -119,7 +119,8 @@
 
 (quail-select-package "Dyalog")
 
-(eval `(quail-define-rules ,@(loop for e in dyalog-input-symbols
-                                   collect (list (concat dyalog-input-prefix (car e)) (cdr e)))))
+(eval `(quail-define-rules ,@(mapcar (lambda (x) (list (concat dyalog-input-prefix (car x))
+                                                  (cdr x)))
+                                     dyalog-input-symbols)))
 
 (provide 'dyalog-input)
