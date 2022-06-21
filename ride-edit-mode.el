@@ -24,12 +24,12 @@
   "Sends a SaveChanges message to the interpreter."
   (interactive)
   (ride-send ride-client `("SaveChanges"
-                         (:win ,win-id
-                               :text ,(split-string
-                                       (buffer-substring-no-properties
-                                        (point-min)
-                                        (point-max))
-                                       "\n" t)))))
+                           (:win ,win-id
+                                 :text ,(split-string
+                                         (buffer-substring-no-properties
+                                          (point-min)
+                                          (point-max))
+                                         "\n" t)))))
 (defun ride-edit-exit ()
   "Saves any changes before exiting."
   (interactive)
