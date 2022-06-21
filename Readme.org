@@ -47,5 +47,6 @@
    #+END_SRC
    in my init file.
 ** TODO/What is missing
-   - Add debugging support
+   - Improve and extend debugging support.
+   - Add thread and stack information windows.
 
